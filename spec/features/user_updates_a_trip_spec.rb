@@ -7,6 +7,7 @@ RSpec.feature "User edits his trip" do
 
     visit root_path
     click_on trip_city
+    click_on "Edit"
     fill_in "trip_description", with: trip_description
     click_on "Update"
 
