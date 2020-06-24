@@ -7,8 +7,8 @@ RSpec.feature "User adds a new post" do
     visit root_path
     click_on "Add new trip"
     fill_in "trip_city", with: trip_city
-    click_on "Submit"
+    click_on "Create"
 
-    expect(page).to have_link trip_city
+    expect(page).to have_text trip_city
   end
 end
