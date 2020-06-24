@@ -3,6 +3,10 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
   def new
     @trip = Trip.new
   end
@@ -11,7 +15,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
 
     if @trip.save
-      redirect_to root_path
+      redirect_to trip_path(@trip)
     else
       render 'new'
     end
@@ -25,7 +29,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
 
     if @trip.update(trip_params)
-      redirect_to root_path
+      redirect_to trip_path(@trip)
     else
       render 'edit'
     end
