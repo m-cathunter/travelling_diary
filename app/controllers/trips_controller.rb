@@ -13,6 +13,10 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    weather = weather(@trip.city)
+    if weather.present?
+      @trip.temperature = weather.parsed_response["main"]["temp"]
+    end
 
     if @trip.save
       redirect_to trip_path(@trip)
@@ -45,6 +49,10 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:city, :description)
+    params.require(:trip).permit(:city, :description, :temperature)
+  end
+
+  def weather(city_name)
+    HTTParty.post("https://api.openweathermap.org/data/2.5/weather?q=#{city_name}&units=metric&appid=634391c14335800027d7efb5772b11f6")
   end
 end
