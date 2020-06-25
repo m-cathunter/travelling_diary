@@ -1,7 +1,22 @@
-<%= form_for @trip do |f| %>
-  <%= f.label :city%>
-  <%= f.text_field :city %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit(@trip.new_record? ? "Create" : "Update") %>
+<head>
+  <h3>
+    Post form
+  </h3>
+</head>
+
+<%= bootstrap_form_for @trip do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card card-outline-secondary">
+        <div class="card-body">
+          <%= f.text_field :city %>
+          <%= f.text_field :description %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <%= f.submit(@trip.new_record? ? "Create" : "Update", class: "btn btn-primary") %>
 <% end %>
