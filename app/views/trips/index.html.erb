@@ -1,5 +1,27 @@
-<%= link_to "Add new trip", new_trip_path %>
+<head>
+  <h3>
+    <span>Posts from my trips</span>
+    <%= link_to "Add new trip", new_trip_path,
+      class: "btn btn-primary float-right" %>
+  </h3>
+</head>
 
-<% @trips.each do |trip| %>
-  <%= link_to trip.city, trip_path(trip) %>
-<% end %>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">City</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @trips.each do |trip| %>
+          <tr>
+            <td><%= link_to trip.city, trip_path(trip) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
