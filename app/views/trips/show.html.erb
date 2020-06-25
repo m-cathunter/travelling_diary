@@ -1,6 +1,13 @@
-<%= @trip.city %>
+<head>
+  <h3>
+    <%= @trip.city %>
+  </h3>
+</head>
+
 <%= @trip.description %>
 
-<%= link_to "Edit", edit_trip_path(@trip) %>
-<%= link_to "Remove", trip_path(@trip),
+<hr/>
+
+<%= link_to "Edit", edit_trip_path(@trip), class: "btn btn-primary" %>
+<%= link_to "Remove", trip_path(@trip), class: "btn btn-danger",
   method: :delete, data: { confirm: "Are you sure?"}%>
