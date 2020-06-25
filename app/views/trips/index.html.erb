@@ -12,6 +12,7 @@
       <thead>
         <tr>
           <th scope="col">City</th>
+          <th scope="col">Created at</th>
         </tr>
       </thead>
 
@@ -19,6 +20,7 @@
         <% @trips.each do |trip| %>
           <tr>
             <td><%= link_to trip.city, trip_path(trip) %></td>
+            <td><%= trip.created_at %></td>
           </tr>
         <% end %>
       </tbody>
