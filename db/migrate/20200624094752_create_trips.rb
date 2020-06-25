@@ -3,6 +3,7 @@ class CreateTrips < ActiveRecord::Migration[6.0]
     create_table :trips do |t|
       t.text :city
       t.text :description
+      t.text :temperature
 
       t.timestamps
     end

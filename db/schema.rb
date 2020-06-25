@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_094752) do
   create_table "trips", force: :cascade do |t|
     t.text "city"
     t.text "description"
+    t.text "temperature"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
